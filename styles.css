@@ -1,0 +1,100 @@
+body {
+    /*background-color: #F7F6DC; /* Cor de fundo para o body */
+    display:flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #F7F6DC;
+    
+}
+
+aside {
+  
+   position:sticky;
+   right: 0;
+   width: 30%;
+   height: 100%;
+   background-color: white;
+
+}
+
+main {
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: #F7F6DC;
+    height: 100%;
+    padding: 5%;
+    padding-bottom: 10%;
+}
+
+.main_logado {
+    margin-left: 15%;
+    margin-right: 0;
+    background-color: #F7F6DC;
+    height: 100%;
+    padding: 5%;
+    padding-bottom: 10%;
+}
+
+.custom-navbar {
+    background-color: #B1D7B4; /* Cor de fundo para a barra de navegação */
+    position: sticky;
+}
+
+/*.botao-home{*/
+/*    margin-left: 10px;*/
+/*}*/
+
+/*.custom-div-nav{*/
+/*    display: flex;*/
+/*    margin-left: 1020px;*/
+/*}*/
+
+.footer {
+    background-color: #7FB77E;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+}
+
+
+.card-img-top {
+    max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner pai */
+    height: auto; /* Mantém a proporção da imagem ao ajustar a largura */
+    max-height: 200px; /* Altura máxima da imagem (ajuste conforme necessário) */
+}
+
+h1{
+    text-align: center;
+}
+
+.container {
+    flex: 1;
+}
+
+.main_aside {
+    display: flex;
+    /* flex-direction: row; */
+}
+
+.testezao{
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    color: red;
+    /* width: 2em; */
+    box-shadow: 5px 5px 10px #888888;
+}
+
+
+
+/*footer {*/
+/*    background-color: #B1D7B4; !* Cor de fundo para o footer *!*/
+/*    color: white; !* Texto branco no footer para melhor legibilidade na cor de fundo escura *!*/
+/*    padding: 20px;*/
+/*    width: 100%;*/
+/*    text-align: center;*/
+/*}*/
