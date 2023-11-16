@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Locais de Doação</title>
+  <title>Meus Locais</title>
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="styles.css" rel="stylesheet">
 </head>
@@ -46,11 +46,17 @@
     <main class="main_logado">
         <div class="container mt-4">
             <div id="doador-section">
-              <h2>Locais de Doação Disponíveis</h2>
+              <h2>Meus Locais</h2>
               <div class="search-container">
                 <label for="searchInput">Buscar por nome:</label>
                 <input type="text" id="searchInput" class="form-control mb-1" placeholder="Digite o nome do local">
                 <button onclick="filtrarLocais()" class="btn btn-primary">Buscar <span>&#128269;</span></button>
+                <a href="adicionarLocal.html" class="btn btn-success">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                      </svg>
+                    Adicionar Local de Doação
+                </a>
               </div>
               <div class="row mt-4" id="galeria-locais">
                 <!-- Locais serão dinamicamente adicionados aqui usando script.js -->
@@ -91,7 +97,7 @@
 </div>
 
 <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="scriptLogado.js"></script>
+<script src="scriptMeusLocais.js"></script>
 
 <footer class="footer mt-auto py-3">
   <div class="container text-center">

@@ -15,11 +15,11 @@
 </header>
 
 
-<nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+<nav class="navbar navbar-expand-lg navbar-light custom-navbar sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="indexLogado.html">Home</a>
     <!-- botão de responsividade: -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -27,7 +27,7 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="login.html">Sair</a>
+          <a class="nav-link" href="index.html">Sair</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="locaisLogado.html">Locais</a>
@@ -39,9 +39,10 @@
     </div>
   </div>
 </nav>
+
 <div class="main_aside">
-  <main>
-    <section class="presentation">
+  <main class="main_logado">
+    <section>
       <h2>Nossa Missão</h2>
       <p>Nossa missão é alimentar esperanças e unir comunidades. Acreditamos que todos merecem uma refeição nutritiva
         e que juntos podemos fazer a diferença. Estamos empenhados em combater a fome e criar um mundo onde ninguém
@@ -60,38 +61,47 @@
         com o(s) organizador(es) da instituição, para obter mais informações. Ou então, você pode se <a href="cadastro.html">
           cadastrar</a> e se tornar um ponto de Doação, para que mais pessoas possam ser ajudadas. </p>
     </section>
+    <div class="container">
+      <div class="row">
+        <div class="col-4"></div>
+        <a href="locaisLogado.html" class="btn btn-primary col-4">Quero Ajudar!</a></button>
+        <div class="col-4"></div>
+      </div>
+    </div>
   </main>
+   
+  <aside>
+    <div class="d-flex flex-column flex-shrink-0 p-3" >
+        <hr>
+        <ul class="nav nav-pills flex-column mb-auto">
+          <li class="nav-item">
+            <a href="indexLogado.html" class="nav-link active" aria-current="page">
+              <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="meusLocais.html" class="nav-link link-dark">
+              <svg class="bi me-2" width="16" height="16"><use xlink:href=""></use></svg>
+              Meus Locais de Doação
+            </a>
+          </li>
+          <li>
+            <a href="editarPerfil.html" class="nav-link link-dark">
+              <svg class="bi me-2" width="16" height="16"><use xlink:href=""></use></svg>
+              Editar Perfil
+            </a>
+          </li>
+        </ul>
+        <hr>
+      </div>
+    
+</aside>
       
-      <aside>
-          <div class="d-flex flex-column flex-shrink-0 p-3" >
-              <hr>
-              <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
-                  <a href="indexLogado.html" class="nav-link active" aria-current="page">
-                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="locaisLogado.html" class="nav-link link-dark">
-                    <svg class="bi me-2" width="16" height="16"><use xlink:href=""></use></svg>
-                    Meus Locais de Doação
-                  </a>
-                </li>
-                <li>
-                  <a href="#" class="nav-link link-dark">
-                    <svg class="bi me-2" width="16" height="16"><use xlink:href=""></use></svg>
-                    Editar Perfil
-                  </a>
-                </li>
-              </ul>
-              <hr>
-            </div>
-          
-      </aside>
 </div>
 
 <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="scriptLogado.js"></script>
 
 <footer class="footer mt-auto py-3">
   <div class="container text-center">

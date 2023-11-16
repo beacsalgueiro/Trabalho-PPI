@@ -14,11 +14,11 @@
   <h1 id="titulo">Alimentando Esperanças</h1>
 </header>
 
-<nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+<nav class="navbar navbar-expand-lg navbar-light custom-navbar sticky-top">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">Home</a>
     <!-- botão de responsividade: -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -41,7 +41,7 @@
 
 
 <main>
-  <section class="presentation">
+  <section>
     <h2>Nossa Missão</h2>
     <p>Nossa missão é alimentar esperanças e unir comunidades. Acreditamos que todos merecem uma refeição nutritiva
       e que juntos podemos fazer a diferença. Estamos empenhados em combater a fome e criar um mundo onde ninguém
@@ -60,9 +60,25 @@
       com o(s) organizador(es) da instituição, para obter mais informações. Ou então, você pode se <a href="cadastro.html">
         cadastrar</a> e se tornar um ponto de Doação, para que mais pessoas possam ser ajudadas. </p>
   </section>
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-4"></div>
+          <div class="col-4 btn-group">
+            <button class="btn btn-primary col-4" data-bs-toggle="collapse" data-bs-target="#treeMenu">Quero Ajudar!</button>
+          </div>
+          <div class="collapse mt-3" id="treeMenu">
+            <ul class="list-group">
+              <li class="list-group-item"><a href="locais.html" class="col-4">Doar</a></li>
+              <li class="list-group-item"><a href="cadastro.html" class="col-4">Cadastrar um Local</a></li>
+            </ul>
+          </div>
+      <div class="col-4"></div>
+    </div>
+  </div>
 </main>
 
 <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
 
 <footer class="footer mt-auto py-3">
   <div class="container text-center">

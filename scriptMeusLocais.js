@@ -1,9 +1,8 @@
 const locaisDeDoacao = [
     { nome: "Local1", endereco: "Endereço 1", telefone: "123-456-7890", imagem: "fotos/local1.jpg", email: "email@teste.com" },
     { nome: "Local2", endereco: "Endereço 2", telefone: "234-567-8901", imagem: "fotos/local2.jpg", email: "email@teste.com" },
-    { nome: "Local3", endereco: "Endereço 3", telefone: "234-567-8901", imagem: "fotos/local3.jpg", email: "email@teste.com" },
-    { nome: "Local4", endereco: "Endereço 4", telefone: "234-567-8901", imagem: "fotos/local4.jpg", email: "email@teste.com" },
 ];
+
 function exibirLocais() {
     const galeriaLocais = document.getElementById("galeria-locais");
     galeriaLocais.innerHTML = "";
@@ -14,22 +13,26 @@ function exibirLocais() {
         const card = document.createElement("div");
         card.className = "card";
         card.innerHTML = `
-                <img src="${local.imagem}" class="card-img-top" alt="Imagem do Local">
-                <div class="card-body">
-                    <h5 class="card-title">${local.nome}</h5>
-                    <p class="card-text"><strong>Endereço:</strong> ${local.endereco}</p>
-                    <a href="detalhesLocaisAdm.html?nome=${local.nome}&endereco=${local.endereco}&telefone=${local.telefone}" class="btn btn-primary">Mais Informações</a>
-                    <button class="btn btn-danger">
+            <img src="${local.imagem}" class="card-img-top" alt="Imagem do Local">
+            <div class="card-body">
+                <h5 class="card-title">${local.nome}</h5>
+                <p class="card-text"><strong>Endereço:</strong> ${local.endereco}</p>
+                <a href="detalhesLocaisLogado.html?nome=${local.nome}&endereco=${local.endereco}&telefone=${local.telefone}&email=${local.email}" class="btn btn-primary">Mais Informações</a>
+                <a href="editarLocal.html" class="btn btn-primary">
+                    <i class="fas fa-trash"></i> Editar
+                </a>
+                <button class="btn btn-danger mt-2">
                         <i class="fas fa-trash"></i> Excluir
-                    </button>
-                </div>
-                `;
+                </button>
+            </div>
+        `;
 
         coluna.appendChild(card);
         galeriaLocais.appendChild(coluna);
     });
 }
 
+// exibir locais quando a página carregar
 document.addEventListener("DOMContentLoaded", exibirLocais);
 function filtrarLocais() {
     const searchTerm = document.getElementById("searchInput").value.toLowerCase();
@@ -39,7 +42,7 @@ function filtrarLocais() {
     const filteredLocais = locaisDeDoacao.filter(local => local.nome.toLowerCase().includes(searchTerm));
 
     if (filteredLocais.length === 0) {
-
+        
         const noResultsMessage = document.createElement("div");
         noResultsMessage.textContent = "Nenhum Local foi encontrado.";
         galeriaLocais.appendChild(noResultsMessage);
@@ -56,12 +59,15 @@ function filtrarLocais() {
                 <div class="card-body">
                     <h5 class="card-title">${local.nome}</h5>
                     <p class="card-text"><strong>Endereço:</strong> ${local.endereco}</p>
-                    <a href="detalhesLocaisAdmin.html?nome=${local.nome}&endereco=${local.endereco}&telefone=${local.telefone}" class="btn btn-primary">Mais Informações</a>
-                    <button class="btn btn-danger">
+                    <a href="detalhesLocaisLogado.html?nome=${local.nome}&endereco=${local.endereco}&telefone=${local.telefone}" class="btn btn-primary">Mais Informações</a>
+                    <a href="editarLocal.html" class="btn btn-primary">
+                    <i class="fas fa-trash"></i> Editar
+                </a>
+                <button class="btn btn-danger mt-2">
                         <i class="fas fa-trash"></i> Excluir
-                    </button>
+                </button>
                 </div>
-                `;
+            `;
 
             coluna.appendChild(card);
             galeriaLocais.appendChild(coluna);
@@ -97,6 +103,6 @@ function getCep() {
                     pais.value = "Brasil";
                 }
             })
-            .catch(error => console.error("Error fetching address data: ", error));
+        .catch(error => console.error("Error fetching address data: ", error));
     });
 }

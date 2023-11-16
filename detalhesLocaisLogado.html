@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Locais de Doação</title>
+  <title>Detalhes</title>
   <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="styles.css" rel="stylesheet">
 </head>
@@ -13,7 +13,6 @@
 <header>
   <h1 id="titulo">Alimentando Esperanças</h1>
 </header>
-
 
 <nav class="navbar navbar-expand-lg navbar-light custom-navbar sticky-top">
   <div class="container-fluid">
@@ -43,55 +42,54 @@
 
 
 <div class="main_aside">
-    <main class="main_logado">
-        <div class="container mt-4">
-            <div id="doador-section">
-              <h2>Locais de Doação Disponíveis</h2>
-              <div class="search-container">
-                <label for="searchInput">Buscar por nome:</label>
-                <input type="text" id="searchInput" class="form-control mb-1" placeholder="Digite o nome do local">
-                <button onclick="filtrarLocais()" class="btn btn-primary">Buscar <span>&#128269;</span></button>
-              </div>
-              <div class="row mt-4" id="galeria-locais">
-                <!-- Locais serão dinamicamente adicionados aqui usando script.js -->
-              </div>
+  <main class="main_logado">
+    <div class="container mt-4">
+      <h2>Detalhes do Local de Doação</h2>
+      <div id="detalhes-local">
+        <!-- As informações do local de doação serão preenchidas aqui usando detalhe.js -->
+      </div>
+    </div>
+    
+      <div class="form-group">
+        <label for="descricao">Escrever e-mail para responsável:</label>
+        <textarea class="form-control" id="descricao" rows="6"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary mt-2 mb-2">Enviar</button>
+    </div>
+  </main>
+      
+      <aside>
+          <div class="d-flex flex-column flex-shrink-0 p-3" >
+              <hr>
+              <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                  <a href="indexLogado.html" class="nav-link active" aria-current="page">
+                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a href="meusLocais.html" class="nav-link link-dark">
+                    <svg class="bi me-2" width="16" height="16"><use xlink:href=""></use></svg>
+                    Meus Locais de Doação
+                  </a>
+                </li>
+                <li>
+                  <a href="editarPerfil.html" class="nav-link link-dark">
+                    <svg class="bi me-2" width="16" height="16"><use xlink:href=""></use></svg>
+                    Editar Perfil
+                  </a>
+                </li>
+              </ul>
+              <hr>
             </div>
-          </div>
-
-    </main>
-
-    <aside>
-        <div class="d-flex flex-column flex-shrink-0 p-3" >
-            <hr>
-            <ul class="nav nav-pills flex-column mb-auto">
-              <li class="nav-item">
-                <a href="indexLogado.html" class="nav-link active" aria-current="page">
-                  <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="meusLocais.html" class="nav-link link-dark">
-                  <svg class="bi me-2" width="16" height="16"><use xlink:href=""></use></svg>
-                  Meus Locais de Doação
-                </a>
-              </li>
-              <li>
-                <a href="editarPerfil.html" class="nav-link link-dark">
-                  <svg class="bi me-2" width="16" height="16"><use xlink:href=""></use></svg>
-                  Editar Perfil
-                </a>
-              </li>
-            </ul>
-            <hr>
-          </div>
-        
-    </aside>
-
+          
+      </aside>
 </div>
 
 <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
 <script src="scriptLogado.js"></script>
+<!--<script src="detalhe.js"></script>-->
 
 <footer class="footer mt-auto py-3">
   <div class="container text-center">

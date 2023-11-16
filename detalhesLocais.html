@@ -14,11 +14,11 @@
   <h1 id="titulo">Alimentando Esperanças</h1>
 </header>
 
-<nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+<nav class="navbar navbar-expand-lg navbar-light custom-navbar sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="indexAdm.html">Home</a>
+    <a class="navbar-brand" href="index.html">Home</a>
     <!-- botão de responsividade: -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -29,27 +29,35 @@
           <a class="nav-link" href="login.html">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="locaisAdm.html">Locais</a>
+          <a class="nav-link" href="locais.html">Locais</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="sobreAdm.html">Quem somos</a>
+          <a class="nav-link" href="sobre.html">Quem somos</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
-<div class="container mt-4">
-  <h2>Detalhes do Local de Doação</h2>
-  <div id="detalhes-local">
-    <!-- As informações do local de doação serão preenchidas aqui usando JavaScript -->
-  </div>
-</div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="detalhes.js"></script>
+
+<main>
+  <div class="container mt-4">
+    <h2>Detalhes do Local de Doação</h2>
+    <div id="detalhes-local">
+      <!-- As informações do local de doação serão preenchidas aqui usando detalhe.js -->
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="descricao">Escrever e-mail para responsável:</label>
+    <textarea class="form-control" id="descricao" rows="6"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary mt-2 mb-2">Enviar</button>
+</main>
+
+<script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="detalhe.js"></script>
 
 <footer class="footer mt-auto py-3">
   <div class="container text-center">

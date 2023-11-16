@@ -1,5 +1,4 @@
 body {
-    /*background-color: #F7F6DC; /* Cor de fundo para o body */
     display:flex;
     flex-direction: column;
     min-height: 100vh;
@@ -14,24 +13,26 @@ aside {
   
    position:sticky;
    right: 0;
-   width: 30%;
+   width: 20%;
    height: 100%;
    background-color: white;
+   justify-content: left;
 
 }
 
 main {
-    margin-left: 15%;
-    margin-right: 15%;
+    margin-left: 20%;
+    margin-right: 20%;
     background-color: #F7F6DC;
     height: 100%;
     padding: 5%;
     padding-bottom: 10%;
+    width: 60%;
 }
 
 .main_logado {
-    margin-left: 15%;
-    margin-right: 0;
+    margin-left: 20%;
+    margin-right: 0%;
     background-color: #F7F6DC;
     height: 100%;
     padding: 5%;
@@ -39,18 +40,13 @@ main {
 }
 
 .custom-navbar {
-    background-color: #B1D7B4; /* Cor de fundo para a barra de navegação */
-    position: sticky;
+    background-color: #B1D7B4; 
 }
 
-/*.botao-home{*/
-/*    margin-left: 10px;*/
-/*}*/
-
-/*.custom-div-nav{*/
-/*    display: flex;*/
-/*    margin-left: 1020px;*/
-/*}*/
+.img-detalhes{
+    height: 250px;
+    width: 250px;
+}
 
 .footer {
     background-color: #7FB77E;
@@ -62,9 +58,9 @@ main {
 
 
 .card-img-top {
-    max-width: 100%; /* Garante que a imagem não ultrapasse a largura do contêiner pai */
-    height: auto; /* Mantém a proporção da imagem ao ajustar a largura */
-    max-height: 200px; /* Altura máxima da imagem (ajuste conforme necessário) */
+    max-width: 100%;
+    height: auto;
+    max-height: 200px;
 }
 
 h1{
@@ -77,24 +73,6 @@ h1{
 
 .main_aside {
     display: flex;
-    /* flex-direction: row; */
-}
-
-.testezao{
-    position: absolute;
-    top: 3%;
-    right: 3%;
-    color: red;
-    /* width: 2em; */
-    box-shadow: 5px 5px 10px #888888;
 }
 
 
-
-/*footer {*/
-/*    background-color: #B1D7B4; !* Cor de fundo para o footer *!*/
-/*    color: white; !* Texto branco no footer para melhor legibilidade na cor de fundo escura *!*/
-/*    padding: 20px;*/
-/*    width: 100%;*/
-/*    text-align: center;*/
-/*}*/

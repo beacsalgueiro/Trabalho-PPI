@@ -15,19 +15,19 @@
 </header>
 
 
-<nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+<nav class="navbar navbar-expand-lg navbar-light custom-navbar sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="indexAdm.html">Home</a>
         <!-- botão de responsividade: -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="login.html">Sair</a>
+                    <a class="nav-link" href="index.html">Sair</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="locaisAdm.html">Locais</a>
@@ -41,7 +41,6 @@
 </nav>
 
 
-
 <div class="main_aside">
     <main class="main_logado">
         <div class="container mt-4">
@@ -49,7 +48,7 @@
               <h2>Locais de Doação Disponíveis</h2>
               <div class="search-container">
                 <label for="searchInput">Buscar por nome:</label>
-                <input type="text" id="searchInput" class="form-control" placeholder="Digite o nome do local">
+                <input type="text" id="searchInput" class="form-control mb-1" placeholder="Digite o nome do local">
                 <button onclick="filtrarLocais()" class="btn btn-primary">Buscar <span>&#128269;</span></button>
               </div>
               <div class="row mt-4" id="galeria-locais">
@@ -71,7 +70,7 @@
                 </a>
               </li>
               <li>
-                  <a href="" class="nav-link link-dark">
+                  <a href="admUsuarios.html" class="nav-link link-dark">
                     <svg class="bi me-2" width="16" height="16"><use xlink:href=""></use></svg>
                     Administração de Usuários
                   </a>

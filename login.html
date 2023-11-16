@@ -7,7 +7,6 @@
     <title>Login</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
-    <script>alert("Não foi feita validação para login. Há um link para a área de usuário logado.")</script>
 </head>
 
 <body>
@@ -16,14 +15,14 @@
 </header>
 
 
-<nav class="navbar navbar-expand-lg navbar-light custom-navbar">
+<nav class="navbar navbar-expand-lg navbar-light custom-navbar sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.html">Home</a>
         <!-- botão de responsividade: -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
             <ul class="navbar-nav">
@@ -43,26 +42,29 @@
 
 
 
-<div class="container mt-5">
-    <h2>Login</h2><br>
-    <form>
-        <div class="form-floating mb-3 col-sm-6">
-            <input type="email" class="form-control custom-input" id="email" placeholder="name@example.com" required>
-            <label for="email">Email</label>
-        </div>
-        <div class="form-floating mb-3 col-sm-6">
-            <input type="password" class="form-control custom-input mb-2" id="senha" placeholder="Digite sua senha" required>
-            <label for="senha">Senha</label>
-        </div>
-        <button type="submit" class="btn btn-primary ">Entrar</button><br>
-        <a href="indexLogado.html">Logar como usuário</a><br>
-        <a href="indexAdm.html">Logar como admin</a>
-    </form>
-    Se não tiver um login, clique aqui: <a href="cadastro.html" class="cadastro-button">Cadastre-se</a>
-
-</div>
+<main>
+    <div class="container mt-5">
+        <h2>Login</h2><br>
+        <form>
+            <div class="form-floating mb-3 col-sm-6">
+                <input type="email" class="form-control custom-input" id="email" placeholder="name@example.com" required>
+                <label for="email">Email</label>
+            </div>
+            <div class="form-floating mb-3 col-sm-6">
+                <input type="password" class="form-control custom-input mb-2" id="senha" placeholder="Digite sua senha" required>
+                <label for="senha">Senha</label>
+            </div>
+            <button type="submit" class="btn btn-primary ">Entrar</button><br>
+            <a href="indexLogado.html">Logar como usuário</a><br>
+            <a href="indexAdm.html">Logar como admin</a>
+        </form>
+        Se não tiver um login, clique aqui: <a href="cadastro.html" class="cadastro-button">Cadastre-se</a>
+        <p class="mt-5"><strong>Obs:</strong> Não foi feita validação para login. Há links para a área de usuário logado.</p>
+    </div>
+</main>
 
 <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
 
 
 <footer class="footer mt-auto py-3">
