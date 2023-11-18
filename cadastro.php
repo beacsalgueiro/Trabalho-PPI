@@ -21,6 +21,7 @@ $sql = "INSERT INTO usuario (nome, email, senha, data_nasc, telefone, cep, ender
 
 $stmt = $PDO->prepare($sql);
 
+
 $stmt->bindParam(1, $nome);
 $stmt->bindParam(2, $email);
 $stmt->bindParam(3, $senha);
