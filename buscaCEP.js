@@ -1,7 +1,6 @@
 //função para localizar o CEP, utilizando a API do VIACEP
 document.addEventListener("DOMContentLoaded", getCep);
 function getCep() {
-
     const cep = document.getElementById("cep");
     const endereco = document.getElementById("endereco");
     const bairro = document.getElementById("bairro");
@@ -16,7 +15,7 @@ function getCep() {
             .then(data => {
                 if (!data.erro) {
                     endereco.value = data.logradouro;
-                    // endereco.value = data.cidade;
+                    endereco.value = data.cidade;
                     bairro.value = data.bairro;
                     estado.value = data.uf;
                     pais.value = "Brasil";

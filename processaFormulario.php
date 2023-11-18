@@ -20,6 +20,11 @@ $endereco = $_POST['endereco'] . ', ' . $_POST['numero'] . ', ' . $_POST['bairro
 $telefone = $_POST['telefone'];
 $imagem = $_FILES['fotoPerfil']['name'];
 
+$targetDir = "fotos/";
+$targetFilePath = $targetDir . $imagem;
+// Move a foto para a pasta
+move_uploaded_file($_FILES["fotoPerfil"]["tmp_name"], $targetFilePath);
+
 $sql = "INSERT INTO locais_doacao (nome, data_inicio, data_final, responsavel, endereco, telefone, email, imagem)
         VALUES 
             ('$nome', '$dataInicio', '$dataFinal', '$responsavel', '$endereco', '$telefone','$email','$imagem')";

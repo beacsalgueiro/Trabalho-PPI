@@ -1,50 +1,104 @@
-const locaisDeDoacao = [
-    { nome: "Local1", endereco: "Endereço 1", telefone: "123-456-7890", imagem: "fotos/local1.jpg", email: "email@teste.com" },
-    { nome: "Local2", endereco: "Endereço 2", telefone: "234-567-8901", imagem: "fotos/local2.jpg", email: "email@teste.com" },
-    { nome: "Local3", endereco: "Endereço 3", telefone: "234-567-8901", imagem: "fotos/local3.jpg", email: "email@teste.com" },
-    { nome: "Local4", endereco: "Endereço 4", telefone: "234-567-8901", imagem: "fotos/local4.jpg", email: "email@teste.com" },
-];
-function exibirLocais() {
+let locaisDeDoacao = [];
+function exibirLocais(locais) {
     const galeriaLocais = document.getElementById("galeria-locais");
     galeriaLocais.innerHTML = "";
-    locaisDeDoacao.forEach(local => {
+
+    locais.forEach(local => {
         const coluna = document.createElement("div");
         coluna.className = "col-md-4 mb-4";
 
         const card = document.createElement("div");
         card.className = "card";
         card.innerHTML = `
-                <img src="${local.imagem}" class="card-img-top" alt="Imagem do Local">
-                <div class="card-body">
-                    <h5 class="card-title">${local.nome}</h5>
-                    <p class="card-text"><strong>Endereço:</strong> ${local.endereco}</p>
-                    <a href="detalhesLocaisAdm.html?nome=${local.nome}&endereco=${local.endereco}&telefone=${local.telefone}" class="btn btn-primary">Mais Informações</a>
-                    <button class="btn btn-danger">
-                        <i class="fas fa-trash"></i> Excluir
-                    </button>
-                </div>
-                `;
+            <img src="${local.imagem}" class="card-img-top" alt="Imagem do Local">
+            <div class="card-body">
+                <h5 class="card-title">${local.nome}</h5>
+                <p class="card-text"><strong>Endereço:</strong> ${local.endereco}</p>
+                <a href="detalhesLocais.html?id=${local.id}" class="btn btn-primary">Mais Informações</a>
+                <button class="btn btn-danger" onclick="excluirLocal(${local.id},'${local.nome}')">
+                    <i class="fas fa-trash"></i> Excluir
+                </button>
+            </div>
+        `;
 
         coluna.appendChild(card);
         galeriaLocais.appendChild(coluna);
     });
 }
 
-document.addEventListener("DOMContentLoaded", exibirLocais);
+function excluirLocal(localId, nomeLocal) {
+    // Pergunta ao usuário se ele realmente deseja excluir o local
+    const confirmacao = window.confirm('Você realmente deseja excluir o local "'+nomeLocal+'"?');
+
+    if (confirmacao) {
+        // Se o usuário confirmar, será feita uma solicitação AJAX para excluir o local
+        fetch(`excluirLocal.php?id=${localId}`, {
+            method: 'DELETE'
+        })
+            .then(response => response.text())
+            .then(message => {
+                alert(message);
+                location.reload()
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+            });
+    }
+}
+
+
+// Função para buscar locais do banco de dados
+function buscarLocais() {
+    // Realiza uma solicitação AJAX para buscarLocais.php
+    fetch('buscarLocais.php', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        // Adiciona um timeout de 10 segundos
+        timeout: 10000,
+    })
+        .then(response => {
+            // Verifica se a resposta é bem-sucedida (status 200)
+            if (!response.ok) {
+                throw new Error(`Erro de rede: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            locaisDeDoacao = data;
+            exibirLocais(data);
+        })
+        .catch(error => {
+            console.error('Erro na solicitação AJAX:', error.message);
+            if (error instanceof TypeError && error.message.includes('timeout'))
+                console.error('Tempo limite de solicitação atingido. Verifique a conexão com o servidor.');
+        });
+}
+
+// exibir locais quando a página carregar
+document.addEventListener("DOMContentLoaded", buscarLocais);
+
 function filtrarLocais() {
     const searchTerm = document.getElementById("searchInput").value.toLowerCase();
     const galeriaLocais = document.getElementById("galeria-locais");
     galeriaLocais.innerHTML = "";
 
+    // Verifica se a busca está vazia
+    if (searchTerm.trim() === "") {
+        // Se estiver vazia, chama a função buscarLocais para exibir todos os locais
+        buscarLocais();
+        return;
+    }
+
+    // Realiza a filtragem dos locais obtidos da solicitação AJAX
     const filteredLocais = locaisDeDoacao.filter(local => local.nome.toLowerCase().includes(searchTerm));
 
     if (filteredLocais.length === 0) {
-
         const noResultsMessage = document.createElement("div");
         noResultsMessage.textContent = "Nenhum Local foi encontrado.";
         galeriaLocais.appendChild(noResultsMessage);
-    }
-    else {
+    } else {
         filteredLocais.forEach(local => {
             const coluna = document.createElement("div");
             coluna.className = "col-md-4 mb-4";
@@ -56,18 +110,19 @@ function filtrarLocais() {
                 <div class="card-body">
                     <h5 class="card-title">${local.nome}</h5>
                     <p class="card-text"><strong>Endereço:</strong> ${local.endereco}</p>
-                    <a href="detalhesLocaisAdmin.html?nome=${local.nome}&endereco=${local.endereco}&telefone=${local.telefone}" class="btn btn-primary">Mais Informações</a>
-                    <button class="btn btn-danger">
+                    <a href="detalhesLocais.html?id=${local.id}" class="btn btn-primary">Mais Informações</a>
+                    <button class="btn btn-danger" onclick="excluirLocal(${local.id},'${local.nome}')">
                         <i class="fas fa-trash"></i> Excluir
                     </button>
                 </div>
-                `;
+            `;
 
             coluna.appendChild(card);
             galeriaLocais.appendChild(coluna);
         });
     }
 }
+
 // aqui permite que a busca seja feita com o botão "enter"
 document.getElementById("searchInput").addEventListener("keypress", function(event) {
     if (event.key === "Enter") {
@@ -75,28 +130,20 @@ document.getElementById("searchInput").addEventListener("keypress", function(eve
     }
 });
 
-
-//função para localizar o CEP, utilizando a API do VIACEP
-document.addEventListener("DOMContentLoaded", getCep);
-function getCep() {
-
-    const cep = document.getElementById("cep");
-    const endereco = document.getElementById("endereco");
-    const estado = document.getElementById("estado");
-    const pais = document.getElementById("pais");
-
-    cep.addEventListener("blur", function () {
-        const cep = this.value;
-
-        fetch(`https://viacep.com.br/ws/${cep}/json/`)
-            .then(response => response.json())
-            .then(data => {
-                if (!data.erro) {
-                    endereco.value = data.logradouro;
-                    estado.value = data.uf;
-                    pais.value = "Brasil";
-                }
-            })
-            .catch(error => console.error("Error fetching address data: ", error));
+//Função para carregar imagem de perfil ao editar usuário
+function displayImage(input) {
+    const imagePreview = document.getElementById('imagePreview');
+    if (input.files && input.files[0]) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            imagePreview.src = e.target.result;
+        };
+        reader.readAsDataURL(input.files[0]);
+    } else {
+        imagePreview.src = "";
+    }
+    document.getElementById('fotoPerfil').addEventListener('change', function () {
+        displayImage(this);
     });
 }
+

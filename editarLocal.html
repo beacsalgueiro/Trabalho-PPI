@@ -46,57 +46,70 @@
     <main class="main_logado">
         <div class="container mt-5">
             <h2>Editar Informações do Local</h2>
-            <form>
+            <form id="formularioEditar" method="post" enctype="multipart/form-data">
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="name" placeholder="Nome do Local" required>
-                    <label for="name">Nome do Local:</label>
+                    <input type="text" class="form-control" name="nomeLocal" id="nomeLocal" placeholder="Nome do Local"
+                           required>
+                    <label for="nomeLocal">Nome do Local:</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="date" class="form-control" id="dataInicio" required>
+                    <input type="date" class="form-control" name="dataInicio" id="dataInicio" required>
                     <label for="dataInicio">Data de início de abertura para doações:</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="date" class="form-control" id="dataFinal">
+                    <input type="date" class="form-control" name="dataFinal" id="dataFinal">
                     <label for="dataFinal">Data de fechamento do local para doações:</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="name" placeholder="Nome Completo" required>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Nome Completo" required>
                     <label for="name">Nome do responsável:</label>
-                </div>    
+                </div>
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="email" placeholder="exemplo@gmail.com" required>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="exemplo@gmail.com"
+                           required>
                     <label for="email">E-mail de Contato:</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="cep" placeholder="CEP" required>
+                    <input type="text" class="form-control" name="cep" id="cep" placeholder="CEP" required>
                     <label for="cep">Cep:</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="endereco" placeholder="Endereço" required>
-                    <label for="address">Endereço:</label>
+                    <input type="adress" class="form-control" name="endereco" id="endereco" placeholder="Endereço"
+                           required>
+                    <label for="endereco">Endereço:</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="number" class="form-control" id="numero" placeholder="Número" required>
-                    <label for="address">Número:</label>
+                    <input type="number" class="form-control" name="numero" id="numero" placeholder="Número" required>
+                    <label for="numero">Número:</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="estado" placeholder="Estado" required>
-                    <label for="state">Estado:</label>
+                    <input type="text" class="form-control" name="bairro" id="bairro" placeholder="Bairro" required>
+                    <label for="bairro">Bairro:</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="text" class="form-control" id="pais" placeholder="País" required>
-                    <label for="Country">País:</label>
+                    <input type="text" class="form-control" name="cidade" id="cidade" placeholder="Cidade" required>
+                    <label for="cidade">Cidade:</label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="tel" class="form-control" id="telefone" placeholder="Telefone" required>
+                    <input type="text" class="form-control" name="estado" id="estado" placeholder="Estado" required>
+                    <label for="estado">Estado:</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="form-control" name="pais" id="pais" placeholder="País" required>
+                    <label for="pais">País:</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="tel" class="form-control" name="telefone" id="telefone" placeholder="Telefone"
+                           required>
                     <label for="telefone">Telefone de Contato:</label>
                 </div>
+
                 <label for="fotoPerfil" class="form-label">Foto do Local:</label>
                 <div class="form-floating mb-3 col-sm-6">
                     <img id="imagePreview" class="img-thumbnail" src="" alt="Foto do Local" width="250" height="250">
                 </div>
                 <div class="form-floating mb-3 col-sm-6">
-                    <input type="file" class="form-control" id="fotoPerfil" accept="image/*">
+                    <input type="file" class="form-control" name="fotoPerfil" id="fotoPerfil" accept="image/*">
                 </div>
                 <button type="submit" class="btn btn-primary mb-3">Salvar Alterações</button>
             </form>
@@ -135,7 +148,7 @@
 </div>
 
 <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
+<script src="scriptMeusLocais.js"></script>
 <script src="buscaCEP.js"></script>
 
 <footer class="footer mt-auto py-3">

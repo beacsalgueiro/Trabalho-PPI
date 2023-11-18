@@ -20,11 +20,3 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch(error => console.error('Erro ao obter dados do local:', error));
 });
-nomeLocal
-dataInicio
-dataFinal
-name
-email
-cep
-endereco
-telefone

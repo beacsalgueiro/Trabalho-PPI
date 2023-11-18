@@ -4,32 +4,34 @@ $username = "root";
 $password = "";
 $dbname = "testebruno";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-if ($conn->connect_error) {
-    die("Conexão falhou: " . $conn->connect_error);
-}
+    $localId = $_GET['id'];
 
-$localId = $_GET['id'];
+    $sql = "SELECT * FROM locais_doacao WHERE id = :id";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(':id', $localId, PDO::PARAM_INT);
+    $stmt->execute();
 
-$sql = "SELECT * FROM locais_doacao WHERE id = $localId";
-$result = $conn->query($sql);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
+    if ($row) {
+        if (isset($row['imagem'])) {
+            $row['imagem'] = 'fotos/' . $row['imagem'];
+        }
 
-    // Adiciona o caminho "fotos/" se a coluna for "imagem"
-    if (isset($row['imagem'])) {
-        $row['imagem'] = 'fotos/' . $row['imagem'];
+        echo json_encode($row);
+    } else {
+        header('HTTP/1.1 404 Not Found');
+        echo json_encode(['error' => 'Local não encontrado']);
     }
-
-    // Envie os dados como JSON
-    header('Content-Type: application/json');
-    echo json_encode($row);
-} else {
-    echo json_encode(array('error' => 'Local não encontrado'));
+} catch (PDOException $e) {
+    header('HTTP/1.1 500 Internal Server Error');
+    echo json_encode(['error' => 'Erro na conexão com o banco de dados: ' . $e->getMessage()]);
+} finally {
+    // Fecha a conexão com o banco de dados
+    $conn = null;
 }
-
-// Fecha a conexão com o banco de dados
-    $conn->close();
 ?>
