@@ -43,54 +43,48 @@
 <main>
     <div class="container mt-5">
         <h2>Criar uma Conta</h2>
-        <form>
+        <form action="cadastro.php" method="post">
             <div class="form-floating mb-3 col-sm-6">
-                <input type="text" class="form-control" id="name" placeholder="Nome Completo" required>
+                <input type="text" name="nome" class="form-control" id="name" placeholder="Nome Completo" required>
                 <label for="name">Nome Completo:</label>
             </div>
             <div class="form-floating mb-3 col-sm-6">
-                <input type="email" class="form-control" id="email" placeholder="exemplo@gmail.com" required>
+                <input type="email" name="email" class="form-control" id="email" placeholder="exemplo@gmail.com" required>
                 <label for="email">E-mail:</label>
             </div>
             <div class="form-floating mb-3 col-sm-6">
-                <input type="password" class="form-control" id="senha" placeholder="Senha" required>
+                <input type="password" name="senha" class="form-control" id="senha" placeholder="Senha" required>
                 <label for="senha">Senha:</label>
             </div>
             <div class="form-floating mb-3 col-sm-6">
-                <input type="date" class="form-control" id="birthday" required>
+                <input type="date" name="data_nasc" class="form-control" id="birthday" required>
                 <label for="birthday">Data de Nascimento:</label>
             </div>
             <div class="form-floating mb-3 col-sm-6">
-                <input type="tel" class="form-control" id="telefone" placeholder="Telefone" required>
+                <input type="tel" name="telefone" class="form-control" id="telefone" placeholder="Telefone" required>
                 <label for="telefone">Telefone de Contato:</label>
             </div>
             <div class="form-floating mb-3 col-sm-6">
-                <input type="text" class="form-control" id="cep" placeholder="CEP" required>
+                <input type="text" name="cep" class="form-control" id="cep" placeholder="CEP" required>
                 <label for="cep">Cep:</label>
             </div>
             <div class="form-floating mb-3 col-sm-6">
-                <input type="text" class="form-control" id="endereco" placeholder="Endereço" required>
+                <input type="text" name="endereco" class="form-control" id="endereco" placeholder="Endereço" required>
                 <label for="address">Endereço:</label>
             </div>
             <div class="form-floating mb-3 col-sm-6">
-                <input type="number" class="form-control" id="numero" placeholder="Número" required>
+                <input type="number" name="numero" class="form-control" id="numero" placeholder="Número" required>
                 <label for="address">Número:</label>
             </div>
             <div class="form-floating mb-3 col-sm-6">
-                <input type="text" class="form-control" id="estado" placeholder="Estado" required>
+                <input type="text" name="estado" class="form-control" id="estado" placeholder="Estado" required>
                 <label for="state">Estado:</label>
             </div>
             <div class="form-floating mb-3 col-sm-6">
-                <input type="text" class="form-control" id="pais" placeholder="País" required>
+                <input type="text" name="pais" class="form-control" id="pais" placeholder="País" required>
                 <label for="Country">País:</label>
             </div>
-            <label for="fotoPerfil" class="form-label">Foto do Local:</label>
-                    <div class="form-floating mb-3 col-sm-6">
-                        <img id="imagePreview" class="img-thumbnail" src="" alt="Foto do Local" width="250" height="250">
-                    </div>
-                    <div class="form-floating mb-3 col-sm-6">
-                        <input type="file" class="form-control" id="fotoPerfil" accept="image/*">
-                    </div>
+            
             <button type="submit" class="btn btn-primary">Criar conta</button>
         </form>
     
