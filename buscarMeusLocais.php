@@ -2,7 +2,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "testebruno";
+$dbname = "alimentandoesperancas";
 
 try {
     $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
@@ -10,7 +10,7 @@ try {
 
 //    $responsavel = $_GET['responsavel']; // PEGAR NOME DO USUARIO RESPONSAVEL E SUBSTITUIR EM BAIXO NA QUERY
 
-    $sql = "SELECT * FROM locais_doacao WHERE responsavel = 'Jose Carlos Silveira'"; // <- AQUI
+    $sql = "SELECT * FROM locais_doacao";// WHERE responsavel = 'Jose Carlos Silveira'"; // <- AQUI
     $result = $conn->query($sql);
 
     $locais = $result->fetchAll(PDO::FETCH_ASSOC);

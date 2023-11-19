@@ -21,7 +21,6 @@ $sql = "INSERT INTO usuario (nome, email, senha, data_nasc, telefone, cep, ender
 
 $stmt = $PDO->prepare($sql);
 
-
 $stmt->bindParam(1, $nome);
 $stmt->bindParam(2, $email);
 $stmt->bindParam(3, $senha);
@@ -34,11 +33,11 @@ $stmt->bindParam(9, $estado);
 $stmt->bindParam(10, $pais);
 
 if ($stmt->execute()) {
-if ($stmt->rowCount() > 0) {
-echo "Perfil criado com sucesso";
-} else {
- echo "Erro ao tentar efetivar cadastro";
-}
+ if ($stmt->rowCount() > 0) {
+  echo "Perfil criado com sucesso";
+ } else {
+  echo "Erro ao tentar efetivar cadastro";
+ }
 }
 
 ?>

@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const localId = urlParams.get("id");
 
     // Faça uma solicitação AJAX para obter os dados do local
-    fetch(`locaisEspecificos.php?id=${localId}`)
+    fetch(`buscarLocaisEspecificos.php?id=${localId}`)
         .then(response => response.json())
         .then(data => {
             const detalhesLocal = document.getElementById("detalhes-local");

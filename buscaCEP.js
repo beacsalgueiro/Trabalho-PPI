@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", getCep);
 function getCep() {
     const cep = document.getElementById("cep");
     const endereco = document.getElementById("endereco");
+    const cidade = document.getElementById("cidade");
     const bairro = document.getElementById("bairro");
     const estado = document.getElementById("estado");
     const pais = document.getElementById("pais");
@@ -15,7 +16,7 @@ function getCep() {
             .then(data => {
                 if (!data.erro) {
                     endereco.value = data.logradouro;
-                    endereco.value = data.cidade;
+                    cidade.value = data.localidade;
                     bairro.value = data.bairro;
                     estado.value = data.uf;
                     pais.value = "Brasil";
