@@ -31,7 +31,10 @@ $sql = "INSERT INTO locais_doacao (nome, usuario_idusuario, data_inicio, data_fi
             ('$nome', '' , '$dataInicio', '$dataFinal', '$responsavel', '$endereco', '$telefone','$email','$imagem')";
 
 if ($conn->query($sql) === TRUE) {
-    echo "Cadastro realizado com sucesso!";
+    echo '<script>
+        alert("Perfil criado com sucesso");
+        location.href = "index.html";
+        </script>';
 } else {
     echo "Erro ao cadastrar: " . $conn->error;
 }

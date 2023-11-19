@@ -34,7 +34,10 @@ $stmt->bindParam(10, $pais);
 
 if ($stmt->execute()) {
  if ($stmt->rowCount() > 0) {
-  echo "Perfil criado com sucesso";
+  echo '<script>
+        alert("Perfil criado com sucesso");
+        location.href = "index.html";
+        </script>';
  } else {
   echo "Erro ao tentar efetivar cadastro";
  }

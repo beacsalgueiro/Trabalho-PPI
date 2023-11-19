@@ -15,11 +15,11 @@ function getCep() {
             .then(response => response.json())
             .then(data => {
                 if (!data.erro) {
-                    endereco.value = data.logradouro;
-                    cidade.value = data.localidade;
-                    bairro.value = data.bairro;
-                    estado.value = data.uf;
-                    pais.value = "Brasil";
+                    if (endereco) endereco.value = data.logradouro;
+                    if (cidade) cidade.value = data.localidade;
+                    if (bairro) bairro.value = data.bairro;
+                    if (estado) estado.value = data.uf;
+                    if (pais) pais.value = "Brasil";
                 }
             })
         .catch(error => console.error("Error fetching address data: ", error));
